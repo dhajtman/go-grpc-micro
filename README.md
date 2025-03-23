@@ -1,6 +1,6 @@
-Simple Go gRPC microservice
+### Simple Go gRPC microservice
 
-Follow run.sh to set up local env
+Follow run.sh to set up local env or documentation below
 
 1. Install Go
 
@@ -18,26 +18,38 @@ To work with gRPC, you'll need to install the gRPC tools, which include the Prot
 
 Install Protobuf Compiler: Depending on your operating system, download the Protobuf compiler from the official repository (https://github.com/protocolbuffers/protobuf/releases).
 Install the Go Protobuf Plugin: Use Go's package manager, go get, to install the Go Protobuf plugin:
+```shell
 go get google.golang.org/protobuf/cmd/protoc-gen-go
+```
 Install gRPC Tools: Install the gRPC tools, including the protoc-gen-go-grpc plugin, which is used for generating gRPC code:
+```shell
+go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
+```
 go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
 3. Verify gRPC Tools Installation
 
 To ensure that the gRPC tools are correctly installed, run the following command:
-
+```shell
 protoc-gen-go-grpc --version
+```
 This command should display the installed version of the gRPC tools.
 
-3. Compile Service Stubs
+4. Compile Service Stubs
+```shell
 protoc \
     --go_out=. \
     --go_opt=paths=source_relative \
     --go-grpc_out=. \
     --go-grpc_opt=paths=source_relative \
     shipping.proto
+```
 
-4. Install dependencies
+5. Install dependencies
+```shell
 go mod tidy
+```
 
-5. Run server and client
+6. Run server and client
+```shell
 ./run_client_server.sh
+```
