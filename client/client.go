@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
+	shipping "go-grpc-micro"
 	"google.golang.org/grpc"
-	shipping "listing_6.1"
 	"log"
 	"time"
 )
@@ -11,7 +11,7 @@ import (
 func main() {
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithInsecure())
-	conn, err := grpc.Dial("localhost:8080", opts...)
+	conn, err := grpc.Dial("localhost:8085", opts...)
 	if err != nil {
 		log.Fatalf("Failed to connect shipping service. Err: %v", err)
 	}

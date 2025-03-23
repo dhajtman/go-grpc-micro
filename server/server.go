@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	shipping "go-grpc-micro"
 	"google.golang.org/grpc"
-	shipping "listing_6.1"
 	"log"
 	"math/rand"
 	"net"
@@ -34,7 +34,7 @@ func main() {
 		cancel()
 	}()
 
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", 8080))
+	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", 8085))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
